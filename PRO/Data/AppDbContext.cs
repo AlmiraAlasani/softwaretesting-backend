@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using PRO.Models;
+using System.Collections.Generic;
 
 namespace PRO.Data
 {
@@ -6,7 +9,8 @@ namespace PRO.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-       // public DbSet<Item> Items { get; set; }
+        public DbSet<Income> Incomes { get; set; }
+
 
     }
 }
