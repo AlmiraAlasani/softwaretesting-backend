@@ -35,9 +35,11 @@ namespace PRO.Services.IncomeService
             {
                 var income = _mapper.Map<Income>(incomeDto);
                 _unitOfWork.IncomeRepository.AddIncomeAsync(income);
+
                 Account account = await _unitOfWork.AccountRepository.GetAccountByIdAsync(1);
                 account.Balance += income.Amount;
                 _unitOfWork.AccountRepository.UpdateAccount(account);
+                
                 await _unitOfWork.SaveChangesAsync();
                 return _mapper.Map<IncomeDTO>(income);
             }

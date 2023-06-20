@@ -34,8 +34,15 @@ namespace PRO.Services.ExpenseService
             {
                 var expense = _mapper.Map<Expense>(expenseDto);
                 _unitOfWork.ExpenseRepository.AddExpenseAsync(expense);
+
+                Account account = await _unitOfWork.AccountRepository.GetAccountByIdAsync(1);
+                account.Balance -= expense.Amount;
+                _unitOfWork.AccountRepository.UpdateAccount(account);
+
                 await _unitOfWork.SaveChangesAsync();
                 return _mapper.Map<ExpenseDTO>(expense);
+
+
             }
             catch (Exception ex)
             {
