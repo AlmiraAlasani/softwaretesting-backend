@@ -30,6 +30,7 @@ namespace PRO.Controllers
 
             user.Username =request.Username;
             user.PasswordHash = passwordHash;
+           
 
             return Ok(user);
         }
