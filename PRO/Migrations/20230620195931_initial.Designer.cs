@@ -12,8 +12,8 @@ using PRO.Data;
 namespace PRO.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230620090111_i")]
-    partial class i
+    [Migration("20230620195931_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -275,6 +275,27 @@ namespace PRO.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Incomes");
+                });
+
+            modelBuilder.Entity("PRO.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PRO.DTOs;
 using PRO.Models;
@@ -20,6 +21,7 @@ namespace PRO.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<ExpenseDTO>>> GetAllExpensesAsync()
         {
             var expenses = await _expenseService.GetAllExpensesAsync();
@@ -28,6 +30,7 @@ namespace PRO.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<ExpenseDTO>> GetExpenseByIdAsync(int id)
         {
             var expense = await _expenseService.GetExpenseByIdAsync(id);
@@ -40,6 +43,7 @@ namespace PRO.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<ExpenseDTO>> CreateExpenseAsync(ExpenseDTO expenseDTO)
         {
             await _expenseService.CreateExpenseAsync(expenseDTO);
@@ -49,6 +53,7 @@ namespace PRO.Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<ActionResult> UpdateExpenseAsync(int id, ExpenseDTO expenseDTO)
         {
             if (id != expenseDTO.Id)
@@ -68,6 +73,7 @@ namespace PRO.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> DeleteExpenseAsync(int id)
         {
             var expense = await _expenseService.GetExpenseByIdAsync(id);
