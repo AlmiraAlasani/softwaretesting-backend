@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using PRO.Data;
 using PRO.Repositories;
+using PRO.Repositories.AccountRepository;
+using PRO.Repositories.ExpenseRepository;
 using PRO.Repositories.IncomeRepository;
+using PRO.Services.AccountService;
+using PRO.Services.ExpenseService;
 using PRO.Services.IncomeService;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,11 +24,12 @@ options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IIncomeRepository, IncomeRepository>();
-
-
 builder.Services.AddScoped<IIncomeService, IncomeService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IExpenseRepository, ExpenseRepository>();
+builder.Services.AddScoped<IExpenseService, ExpenseService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

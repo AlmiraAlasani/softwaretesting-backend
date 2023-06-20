@@ -10,6 +10,8 @@ namespace PRO.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<Income> Incomes { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
 
 
     }

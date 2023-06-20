@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PRO.Models
 {
-    public class Income
+    public class Expense
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -11,7 +12,7 @@ namespace PRO.Models
         public int Id { get; set; }
         public string Description { get; set; }
         public decimal Amount { get; set; }
-        //  public DateOnly Date { get; set; }
-  
+        
+
     }
 }
