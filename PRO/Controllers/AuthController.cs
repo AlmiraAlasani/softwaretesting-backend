@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using PRO.DTOs;
 using PRO.Models;
+using PRO.Services.AccountService;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -17,6 +18,7 @@ namespace PRO.Controllers
     {
         public static User user = new User();
         private readonly IConfiguration _configuration;
+        private IAccountService accountService;
 
         public AuthController(IConfiguration configuration) {
             _configuration = configuration;
@@ -30,9 +32,9 @@ namespace PRO.Controllers
 
             user.Username =request.Username;
             user.PasswordHash = passwordHash;
-           
-
+            
             return Ok(user);
+            
         }
 
         [HttpPost("login")]

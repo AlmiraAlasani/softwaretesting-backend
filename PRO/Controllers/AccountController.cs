@@ -41,6 +41,18 @@ namespace PRO.Controllers
             var accountDTO = _mapper.Map<AccountDTO>(account);
             return Ok(accountDTO);
         }
+        [HttpGet("email/{email}")]
+        [Authorize]
+        public async Task<ActionResult<AccountDTO>> GetAccountByEmail(string email)
+        {
+            var account = await _accountService.GetAccountByEmail(email);
+            if (account == null)
+            {
+                return NotFound();
+            }
+            var accountDTO = _mapper.Map<AccountDTO>(account);
+            return Ok(accountDTO);
+        }
 
         [HttpPost]
         [Authorize]

@@ -37,5 +37,12 @@ namespace PRO.Repositories.AccountRepository
         {
             _dbContext.Accounts.Remove(account);
         }
+
+
+        public async Task<Account> GetAccountByEmail(string email)
+        {
+            return await _dbContext.Accounts.FirstOrDefaultAsync(account => account.Email == email);
+        }
+
     }
 }

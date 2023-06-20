@@ -28,6 +28,12 @@ namespace PRO.Services.AccountService
             return _mapper.Map<AccountDTO>(account);
         }
 
+        public async Task<AccountDTO> GetAccountByEmail(string email)
+        {
+            var account = await _unitOfWork.AccountRepository.GetAccountByEmail(email);
+            return _mapper.Map<AccountDTO>(account);
+        }
+
         public async Task<AccountDTO> CreateAccountAsync(AccountDTO accountDto)
         {
             try
