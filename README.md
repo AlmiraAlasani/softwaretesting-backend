@@ -1,6 +1,8 @@
 # Finance Management System
 
 *PROBLEM DEFITNITION*
+
+
 This kind of app aims to keep track of a person’s income.
 A financial management system app can be effective in managing an individual or
 organization's finances. This problem is important because proper financial management is
