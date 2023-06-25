@@ -10,5 +10,6 @@ namespace PRO.Repositories.AccountRepository
         Task AddAccountAsync(Account account);
         void UpdateAccount(Account account);
         void RemoveAccount(Account account);
+        void GetAccountByIdAsync(Account account);
     }
 }

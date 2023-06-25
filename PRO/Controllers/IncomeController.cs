@@ -21,7 +21,7 @@ namespace PRO.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<IEnumerable<IncomeDTO>>> GetAllIncomesAsync()
         {
             var incomes = await _incomeService.GetAllIncomesAsync();
@@ -30,7 +30,7 @@ namespace PRO.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<IncomeDTO>> GetIncomeByIdAsync(int id)
         {
             var income = await _incomeService.GetIncomeByIdAsync(id);
@@ -43,7 +43,7 @@ namespace PRO.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<IncomeDTO>> CreateIncomeAsync(IncomeDTO incomeDTO)
         {
             await _incomeService.CreateIncomeAsync(incomeDTO);
@@ -53,7 +53,7 @@ namespace PRO.Controllers
         
 
         [HttpPut("{id}")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> UpdateIncomeAsync(int id, IncomeDTO incomeDTO)
         {
             if (id != incomeDTO.Id)
@@ -73,7 +73,7 @@ namespace PRO.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> DeleteIncomeAsync(int id)
         {
             var income = await _incomeService.GetIncomeByIdAsync(id);

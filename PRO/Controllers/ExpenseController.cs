@@ -21,7 +21,7 @@ namespace PRO.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<IEnumerable<ExpenseDTO>>> GetAllExpensesAsync()
         {
             var expenses = await _expenseService.GetAllExpensesAsync();
@@ -30,7 +30,7 @@ namespace PRO.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult<ExpenseDTO>> GetExpenseByIdAsync(int id)
         {
             var expense = await _expenseService.GetExpenseByIdAsync(id);
@@ -43,7 +43,7 @@ namespace PRO.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult<ExpenseDTO>> CreateExpenseAsync(ExpenseDTO expenseDTO)
         {
             await _expenseService.CreateExpenseAsync(expenseDTO);
@@ -53,7 +53,7 @@ namespace PRO.Controllers
 
 
         [HttpPut("{id}")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> UpdateExpenseAsync(int id, ExpenseDTO expenseDTO)
         {
             if (id != expenseDTO.Id)
@@ -73,7 +73,7 @@ namespace PRO.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult> DeleteExpenseAsync(int id)
         {
             var expense = await _expenseService.GetExpenseByIdAsync(id);

@@ -21,7 +21,7 @@ namespace PRO.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult<IEnumerable<AccountDTO>>> GetAllAccountsAsync()
         {
             var accounts = await _accountService.GetAllAccountsAsync();
@@ -30,7 +30,7 @@ namespace PRO.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult<AccountDTO>> GetAccountByIdAsync(int id)
         {
             var account = await _accountService.GetAccountByIdAsync(id);
@@ -42,7 +42,7 @@ namespace PRO.Controllers
             return Ok(accountDTO);
         }
         [HttpGet("email/{email}")]
-        [Authorize]
+        //  [Authorize]
         public async Task<ActionResult<AccountDTO>> GetAccountByEmail(string email)
         {
             var account = await _accountService.GetAccountByEmail(email);
@@ -55,7 +55,7 @@ namespace PRO.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult<AccountDTO>> CreateAccountAsync(AccountDTO accountDTO)
         {
             await _accountService.CreateAccountAsync(accountDTO);
@@ -65,7 +65,7 @@ namespace PRO.Controllers
 
 
         [HttpPut("{id}")]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult> UpdateAccountAsync(int id, AccountDTO accountDTO)
         {
             if (id != accountDTO.Id)
@@ -85,7 +85,7 @@ namespace PRO.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        // [Authorize]
         public async Task<ActionResult> DeleteAccountAsync(int id)
         {
             var account = await _accountService.GetAccountByIdAsync(id);

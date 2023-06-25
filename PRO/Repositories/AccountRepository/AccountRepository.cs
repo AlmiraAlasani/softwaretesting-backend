@@ -44,5 +44,9 @@ namespace PRO.Repositories.AccountRepository
             return await _dbContext.Accounts.FirstOrDefaultAsync(account => account.Email == email);
         }
 
+        public void GetAccountByIdAsync(Account account)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
